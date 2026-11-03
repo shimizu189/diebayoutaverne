@@ -99,10 +99,34 @@ section.s h2::after{content:"✦";display:block;color:var(--blood);font-size:1re
 footer{text-align:center;padding:3rem 1rem 4rem;color:var(--dim);font-size:.85rem;border-top:1px solid #2a1f14}
 footer a{margin:0 .6rem}
 
-@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+/* ---------- Work-in-progress-Banner ---------- */
+.wip{position:sticky;top:0;z-index:60;padding:.55rem 1rem;text-align:center;font:.9rem var(--body);letter-spacing:.2em;text-transform:uppercase;
+  color:#1a0e05;background:repeating-linear-gradient(-45deg,var(--lamp) 0 18px,#e89a2c 18px 36px);border-bottom:2px solid #120a05;box-shadow:0 4px 14px #000a}
+
+/* ---------- Scheunentor ---------- */
+.barn{position:fixed;inset:0;z-index:100;perspective:1600px;pointer-events:none;overflow:hidden;animation:gone 0s 2.7s forwards}
+.barn div{position:absolute;top:0;bottom:0;width:50.2%;border:6px solid #120a05;
+  background:repeating-linear-gradient(90deg,var(--wood) 0 34px,#1c110a 34px 38px,var(--wood2) 38px 70px);box-shadow:inset 0 0 80px #000}
+.barn div::before{content:"";position:absolute;inset:6% 4%;
+  background:linear-gradient(to top right,#0000 calc(50% - 16px),#4a3320 calc(50% - 16px) calc(50% + 16px),#0000 calc(50% + 16px)),
+             linear-gradient(to top left,#0000 calc(50% - 16px),#4a3320 calc(50% - 16px) calc(50% + 16px),#0000 calc(50% + 16px));
+  border:16px solid #4a3320;box-shadow:0 0 0 3px #120a05,inset 0 0 0 3px #120a05}
+.barn div::after{content:"";position:absolute;top:50%;width:26px;height:26px;border:5px solid #111;border-radius:50%;background:#000}
+.barn .l{left:0;transform-origin:left center;animation:swingL 1.9s cubic-bezier(.65,0,.3,1) .8s forwards}
+.barn .l::after{right:14px}
+.barn .r{right:0;transform-origin:right center;animation:swingR 1.9s cubic-bezier(.65,0,.3,1) .8s forwards}
+.barn .r::after{left:14px}
+@keyframes swingL{to{transform:rotateY(-110deg)}}
+@keyframes swingR{to{transform:rotateY(110deg)}}
+@keyframes gone{to{visibility:hidden}}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.barn{display:none}}
 </style>
 </head>
 <body>
+
+<div class="barn" aria-hidden="true"><div class="l"></div><div class="r"></div></div>
+<div class="wip">🚧 Work in Progress – die Taverne wird noch gezimmert 🚧</div>
 
 <header class="hero">
   <div class="moon"></div>
