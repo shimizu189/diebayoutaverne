@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Die Bayou Taverne</title>
+<meta name="description" content="Die Bayou Taverne – Gaming-Community im Sumpf. Setz dich ans Feuer, der Rabe hält Wache.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Special+Elite&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d0a; --moss:#1b2419; --wood:#2a1a10; --wood2:#3d2616;
+  --bone:#d8c9a3; --dim:#8c8466; --blood:#8e1b13; --lamp:#ffb347;
+  --head:"IM Fell English SC",Georgia,serif; --body:"Special Elite","Courier New",monospace;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--bone);font:17px/1.7 var(--body);overflow-x:hidden}
+body::after{ /* Vignette + Korn über allem */
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:radial-gradient(ellipse at 50% 40%,transparent 40%,#000d 100%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.09'/%3E%3C/svg%3E");
+}
+h1,h2,h3{font-family:var(--head);font-weight:400;letter-spacing:.06em}
+a{color:inherit}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100vh;display:grid;place-items:center;text-align:center;padding:5rem 1rem 8rem;
+  background:
+   radial-gradient(circle at 50% 38%,#ffb34733,transparent 45%),
+   linear-gradient(#070908,#121a12 60%,#0b0d0a)}
+.moon{position:absolute;top:8%;right:12%;width:90px;height:90px;border-radius:50%;
+  background:radial-gradient(circle at 35% 35%,#e9e2c8,#9c9578 70%);box-shadow:0 0 80px #e9e2c855;opacity:.55}
+.trees{position:absolute;inset:auto 0 0 0;height:55%;opacity:.9;
+  background:
+   linear-gradient(#0000,#0b0d0a 92%),
+   repeating-linear-gradient(90deg,#0a0f0a 0 14px,transparent 14px 70px,#0a0f0a 70px 80px,transparent 80px 160px);
+  mask:linear-gradient(transparent,#000 40%)}
+.fog{position:absolute;left:-50%;width:200%;height:40%;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 50%,#9fb39a30,transparent 65%);filter:blur(20px);animation:drift 40s linear infinite}
+.fog.a{bottom:5%}.fog.b{bottom:25%;animation-duration:65s;animation-direction:reverse;opacity:.7}
+@keyframes drift{to{transform:translateX(25%)}}
+
+.stage{position:relative;z-index:2;max-width:760px}
+.sign{position:relative;display:inline-block;margin-top:150px;padding:1.6rem 2.6rem 1.4rem;
+  background:repeating-linear-gradient(88deg,var(--wood) 0 22px,var(--wood2) 22px 25px,var(--wood) 25px 60px);
+  border:3px solid #120a05;border-radius:4px;box-shadow:0 20px 50px #000c, inset 0 0 40px #000a;
+  transform:rotate(-1.2deg);animation:sway 7s ease-in-out infinite;transform-origin:50% -30px}
+.sign::before,.sign::after{content:"";position:absolute;top:-52px;width:3px;height:52px;background:#111}
+.sign::before{left:18%}.sign::after{right:18%}
+.sign small{display:block;font-size:.8rem;letter-spacing:.4em;color:var(--dim);text-transform:uppercase}
+.sign h1{font-size:clamp(2.2rem,8vw,4.6rem);line-height:1.1;color:var(--bone);text-shadow:0 2px 0 #000,0 0 18px #ffb34744}
+.sign h1 em{color:var(--blood);font-style:normal;text-shadow:0 2px 0 #000}
+@keyframes sway{50%{transform:rotate(1.2deg)}}
+
+.raven{position:absolute;z-index:3;width:min(230px,42vw);left:50%;top:-185px;margin-left:-30px;
+  filter:drop-shadow(0 8px 10px #000a)}
+.raven .head{animation:bob 6s ease-in-out infinite;transform-origin:200px 160px}
+.raven .eye{animation:glow 3.5s infinite}
+@keyframes bob{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-6deg)}85%{transform:rotate(3deg)}}
+@keyframes glow{0%,100%{fill:#ffb347}50%{fill:#ff6a1a}92%{fill:#ffb347}93%{fill:#2a1a10}95%{fill:#ffb347}}
+
+.lede{margin:2.2rem auto 2rem;max-width:34em;color:var(--bone);text-shadow:0 2px 6px #000}
+.btn{display:inline-block;padding:.85rem 2rem;font:1.15rem var(--head);letter-spacing:.12em;text-decoration:none;text-transform:uppercase;
+  color:var(--bone);background:linear-gradient(#a52a1f,var(--blood));border:2px solid #2a0805;border-radius:2px;
+  box-shadow:0 0 0 1px #d8c9a355 inset,0 8px 24px #000a;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 0 1px #d8c9a3aa inset,0 0 30px #8e1b1388,0 8px 24px #000a}
+.btn.ghost{background:none;border-color:var(--dim);color:var(--dim);cursor:not-allowed}
+.btn.ghost:hover{transform:none;box-shadow:none}
+
+.lantern{position:absolute;z-index:2;top:0;left:10%;width:3px;height:120px;background:#111}
+.lantern::after{content:"";position:absolute;left:-14px;bottom:-34px;width:31px;height:38px;border:2px solid #111;border-radius:6px 6px 10px 10px;
+  background:radial-gradient(#fff3c0,var(--lamp) 55%,#8a4a08);box-shadow:0 0 60px 30px #ffb34755;animation:flick 2.4s infinite}
+.lantern.r{left:auto;right:18%;height:80px}
+@keyframes flick{0%,100%{opacity:1}12%{opacity:.8}30%{opacity:1}55%{opacity:.7}60%{opacity:1}80%{opacity:.88}}
+.fly{position:absolute;width:4px;height:4px;border-radius:50%;background:#d6ff7a;box-shadow:0 0 10px 3px #d6ff7a99;z-index:2;animation:fly linear infinite,twinkle 3s infinite}
+@keyframes fly{to{transform:translate(var(--dx),var(--dy))}}
+@keyframes twinkle{50%{opacity:.1}}
+
+/* ---------- Sektionen ---------- */
+section.s{position:relative;max-width:980px;margin:0 auto;padding:5rem 1.5rem}
+section.s h2{font-size:clamp(1.8rem,5vw,2.8rem);text-align:center;color:var(--bone);margin-bottom:.4rem}
+section.s h2::after{content:"✦";display:block;color:var(--blood);font-size:1rem;margin:.4rem 0 2rem}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.4rem}
+.card{padding:1.6rem;background:linear-gradient(#1a130c,#120d08);border:1px solid #3d2e1d;box-shadow:inset 0 0 30px #000a,0 10px 30px #0008;
+  position:relative}
+.card::before{content:"";position:absolute;inset:6px;border:1px solid #3d2e1d66;pointer-events:none}
+.card h3{font-size:1.4rem;color:var(--lamp);margin-bottom:.5rem}
+.card p{color:var(--dim);font-size:.95rem}
+
+.shop{text-align:center}
+.door{margin:0 auto 1.6rem;width:200px;height:250px;position:relative;border:6px solid #120a05;border-radius:100px 100px 0 0;
+  background:repeating-linear-gradient(90deg,var(--wood) 0 30px,#1c110a 30px 33px);box-shadow:inset 0 0 50px #000,0 0 60px #ffb34722}
+.door::before,.door::after{content:"";position:absolute;left:-30px;right:-30px;height:26px;background:#4a3320;border:2px solid #120a05;box-shadow:0 4px 8px #000a}
+.door::before{top:80px;transform:rotate(-8deg)}.door::after{top:150px;transform:rotate(6deg)}
+.door i{position:absolute;right:26px;top:128px;width:12px;height:12px;border-radius:50%;background:var(--lamp);box-shadow:0 0 12px var(--lamp)}
+.shop p{max-width:30em;margin:0 auto 1.5rem;color:var(--dim)}
+
+footer{text-align:center;padding:3rem 1rem 4rem;color:var(--dim);font-size:.85rem;border-top:1px solid #2a1f14}
+footer a{margin:0 .6rem}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="moon"></div>
+  <div class="trees"></div>
+  <div class="fog a"></div><div class="fog b"></div>
+  <div class="lantern"></div><div class="lantern r"></div>
+  <div id="flies"></div>
+
+  <div class="stage">
+    <div class="sign">
+      <!-- Rabe mit Hut -->
+      <svg class="raven" viewBox="0 0 300 330" role="img" aria-label="Ein Rabe mit Hut sitzt auf dem Schild">
+        <path d="M70 215 L8 262 L70 252 L28 296 L100 252Z" fill="#0d0d10"/>              <!-- Schwanz -->
+        <ellipse cx="148" cy="205" rx="82" ry="52" transform="rotate(-18 148 205)" fill="#14141a"/> <!-- Körper -->
+        <path d="M92 190 Q140 150 196 205 Q150 250 100 236 Q80 214 92 190Z" fill="#0b0b0f"/>          <!-- Flügel -->
+        <path d="M100 205 Q140 190 175 215 M105 220 Q140 210 168 230" stroke="#2a2a34" stroke-width="2" fill="none"/>
+        <path d="M170 230 L178 275 M150 238 L152 280" stroke="#0b0b0f" stroke-width="6" stroke-linecap="round"/>
+        <path d="M140 282 h50 m-44 0 l-8 10 m14 -10 l-2 12 m24 -12 l4 10" stroke="#0b0b0f" stroke-width="4" stroke-linecap="round"/>
+        <g class="head">
+          <circle cx="204" cy="140" r="34" fill="#14141a"/>
+          <path d="M232 128 L292 150 Q262 160 236 160Z" fill="#0b0b0f"/>                           <!-- Schnabel -->
+          <path d="M236 150 L282 152" stroke="#2a2a34" stroke-width="1.5"/>
+          <circle class="eye" cx="216" cy="134" r="6" fill="#ffb347"/>
+          <circle cx="217" cy="134" r="2.4" fill="#000"/>
+          <!-- Hut -->
+          <ellipse cx="204" cy="112" rx="58" ry="11" transform="rotate(-9 204 112)" fill="#2b1d12" stroke="#0a0604" stroke-width="2"/>
+          <path d="M172 108 Q170 62 196 52 Q232 46 236 100Z" fill="#33231a" stroke="#0a0604" stroke-width="2"/>
+          <path d="M173 98 Q205 108 236 94 L235 104 Q205 114 172 108Z" fill="#8e1b13"/>              <!-- Hutband -->
+          <path d="M228 98 Q262 60 268 30 Q250 56 226 84Z" fill="#14141a" stroke="#2a2a34" stroke-width="1"/> <!-- Feder -->
+        </g>
+      </svg>
+      <small>Gasthaus &amp; Gaming-Gilde</small>
+      <h1>Die <em>Bayou</em> Taverne</h1>
+    </div>
+
+    <p class="lede">Tief im Sumpf, wo das Licht schlecht und das Bier schlechter ist, sammeln sich die Jäger.
+      Setz dich ans Feuer, such dir einen Trupp – der Rabe hat schon alles gesehen.</p>
+    <a class="btn" href="#" id="discord">Zur Taverne (Discord)</a>
+  </div>
+</header>
+
+<section class="s" id="taverne">
+  <h2>Was im Schankraum los ist</h2>
+  <div class="cards">
+    <div class="card"><h3>Jagdgesellschaften</h3><p>Trupps für Hunt: Showdown und was uns sonst vor die Flinte kommt. Immer jemand wach, immer jemand pleite.</p></div>
+    <div class="card"><h3>Lagerfeuer-Talk</h3><p>Clips, Builds, Kriegsgeschichten und Flüche. Neulinge werden nicht gefressen – meistens.</p></div>
+    <div class="card"><h3>Events &amp; Fehden</h3><p>Turnierabende, Custom-Runden und Wetten um Ehre. Der Wirt führt Buch.</p></div>
+  </div>
+</section>
+
+<section class="s shop" id="laden">
+  <h2>Der Kramladen</h2>
+  <div class="door"><i></i></div>
+  <p>Hinter den Brettern staubt es noch. Bald gibt's hier Taverne-Merch &amp; Kleinkram für die Gemeinschaft.</p>
+  <span class="btn ghost">Verriegelt – bald geöffnet</span>
+</section>
+
+<footer>
+  © Die Bayou Taverne · diebayoutaverne.de<br>
+  <a href="#">Impressum</a><a href="#">Datenschutz</a>
+</footer>
+
+<script>
+// Glühwürmchen
+const f=document.getElementById('flies');
+for(let i=0;i<18;i++){const s=document.createElement('span');s.className='fly';
+  s.style.cssText=`left:${Math.random()*100}%;top:${40+Math.random()*50}%;--dx:${Math.random()*160-80}px;--dy:${Math.random()*120-60}px;animation-duration:${8+Math.random()*10}s,${2+Math.random()*3}s;animation-direction:alternate`;
+  f.appendChild(s)}
+// TODO: echten Discord-Invite eintragen
+document.getElementById('discord').href='https://discord.gg/DEIN-INVITE';
+</script>
+</body>
+</html>
