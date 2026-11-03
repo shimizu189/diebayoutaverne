@@ -53,7 +53,7 @@ a{color:inherit}
 .sign h1 em{color:var(--blood);font-style:normal;text-shadow:0 2px 0 #000}
 @keyframes sway{50%{transform:rotate(1.2deg)}}
 
-.raven{position:absolute;z-index:3;width:min(230px,42vw);left:50%;top:-185px;margin-left:-30px;
+.raven{position:absolute;z-index:3;width:min(230px,42vw);left:50%;bottom:calc(100% - 3px);margin-left:-30px;
   filter:drop-shadow(0 8px 10px #000a)}
 .raven .head{animation:bob 6s ease-in-out infinite;transform-origin:200px 160px}
 .raven .eye{animation:glow 3.5s infinite}
@@ -138,7 +138,7 @@ footer a{margin:0 .6rem}
   <div class="stage">
     <div class="sign">
       <!-- Rabe mit Hut -->
-      <svg class="raven" viewBox="0 0 300 330" role="img" aria-label="Ein Rabe mit Hut sitzt auf dem Schild">
+      <svg class="raven" viewBox="0 0 300 296" role="img" aria-label="Ein Rabe mit Hut sitzt auf dem Schild">
         <path d="M70 215 L8 262 L70 252 L28 296 L100 252Z" fill="#0d0d10"/>              <!-- Schwanz -->
         <ellipse cx="148" cy="205" rx="82" ry="52" transform="rotate(-18 148 205)" fill="#14141a"/> <!-- Körper -->
         <path d="M92 190 Q140 150 196 205 Q150 250 100 236 Q80 214 92 190Z" fill="#0b0b0f"/>          <!-- Flügel -->
