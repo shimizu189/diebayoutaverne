@@ -56,9 +56,9 @@ a{color:inherit}
 .raven{position:absolute;z-index:3;width:min(230px,42vw);left:50%;bottom:calc(100% - 3px);margin-left:-30px;
   filter:drop-shadow(0 8px 10px #000a)}
 .raven .head{animation:bob 6s ease-in-out infinite;transform-origin:200px 160px}
-.raven .eye{animation:glow 3.5s infinite}
+.raven .eye{animation:glow 3.5s infinite;filter:drop-shadow(0 0 5px #2ea8ff)}
 @keyframes bob{0%,60%,100%{transform:rotate(0)}70%{transform:rotate(-6deg)}85%{transform:rotate(3deg)}}
-@keyframes glow{0%,100%{fill:#ffb347}50%{fill:#ff6a1a}92%{fill:#ffb347}93%{fill:#2a1a10}95%{fill:#ffb347}}
+@keyframes glow{0%,100%{fill:#3ab8ff}50%{fill:#8fe0ff}92%{fill:#3ab8ff}93%{fill:#0a1a2a}95%{fill:#3ab8ff}}
 
 .lede{margin:2.2rem auto 2rem;max-width:34em;color:var(--bone);text-shadow:0 2px 6px #000}
 .btn{display:inline-block;padding:.85rem 2rem;font:1.15rem var(--head);letter-spacing:.12em;text-decoration:none;text-transform:uppercase;
@@ -149,16 +149,17 @@ footer a{margin:0 .6rem}
           <circle cx="204" cy="140" r="34" fill="#14141a"/>
           <path d="M232 128 L292 150 Q262 160 236 160Z" fill="#0b0b0f"/>                           <!-- Schnabel -->
           <path d="M236 150 L282 152" stroke="#2a2a34" stroke-width="1.5"/>
-          <circle class="eye" cx="216" cy="134" r="6" fill="#ffb347"/>
-          <circle cx="217" cy="134" r="2.4" fill="#000"/>
+          <circle class="eye" cx="216" cy="134" r="6" fill="#3ab8ff"/>
+          <circle cx="217" cy="134" r="2.4" fill="#e6f8ff"/>
           <!-- Hut -->
-          <ellipse cx="204" cy="112" rx="58" ry="11" transform="rotate(-9 204 112)" fill="#2b1d12" stroke="#0a0604" stroke-width="2"/>
-          <path d="M172 108 Q170 62 196 52 Q232 46 236 100Z" fill="#33231a" stroke="#0a0604" stroke-width="2"/>
-          <path d="M173 98 Q205 108 236 94 L235 104 Q205 114 172 108Z" fill="#8e1b13"/>              <!-- Hutband -->
-          <path d="M228 98 Q262 60 268 30 Q250 56 226 84Z" fill="#14141a" stroke="#2a2a34" stroke-width="1"/> <!-- Feder -->
+          <path d="M170 108 Q166 72 178 62 Q192 54 204 64 Q216 54 230 62 Q242 72 238 108Z" fill="#6b5439" stroke="#0a0604" stroke-width="2"/> <!-- Krone -->
+          <path d="M182 68 Q204 80 226 68" stroke="#3d2e1d" stroke-width="3" fill="none"/>
+          <path d="M138 96 Q148 122 204 122 Q262 122 274 90 Q252 108 204 108 Q160 108 138 96Z" fill="#5a4632" stroke="#0a0604" stroke-width="2"/> <!-- Krempe -->
+          <path d="M170 98 Q204 108 238 98 L238 108 Q204 118 170 108Z" fill="#241810"/>               <!-- Hutband -->
+          <circle cx="186" cy="105" r="3.5" fill="#c4ccd4"/><circle cx="204" cy="109" r="3.5" fill="#c4ccd4"/><circle cx="222" cy="105" r="3.5" fill="#c4ccd4"/>
         </g>
       </svg>
-      <small>Gasthaus &amp; Gaming-Gilde</small>
+      <small>Gasthaus &amp; Gaming-Community</small>
       <h1>Die <em>Bayou</em> Taverne</h1>
     </div>
 
